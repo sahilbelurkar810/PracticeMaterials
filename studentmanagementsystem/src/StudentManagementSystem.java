@@ -121,6 +121,44 @@ public class StudentManagementSystem {
         displayStudents();
     }
 
+    public void findByThreshold(){
+        System.out.println("Enter the marks Threshold ");
+        double threshold = sc.nextDouble();
+        List<Student> filteredStudents = studentMap.values().stream()
+                .filter(s -> s.getMarks() > threshold)
+                .toList();
+        if(filteredStudents.isEmpty()){
+            System.out.println("No students with marks above: "+threshold);
+        }else{
+            filteredStudents.forEach(System.out::println);
+        }
+    }
+    public void findTopStudent(){
+        studentMap.values().stream().max(Comparator.comparingDouble(Student::getMarks)).ifPresentOrElse(student -> System.out.println("Top Student" + student.getName()),()-> System.out.println("No students available"));
+    }
+    public void calculateAverageMarks() {
+        double avgMarks = studentMap.values().stream()
+                .mapToDouble(Student::getMarks)
+                .average()
+                .orElse(0.0);
+
+        System.out.println("Average Marks: " + avgMarks);
+    }
+    public void filterStudentsByMarks(){
+        System.out.println("Choose an Option\n1. Find By Threshold\n2. Find Top Student\n3. Find Average\n4. Exit");
+        int choice = getValidInput("Enter your choice",Integer.class,x -> x>0,"Enter valid input");
+        switch (choice){
+            case 1 -> findByThreshold();
+            case 2 -> findTopStudent();
+            case 3 -> calculateAverageMarks();
+            case 4 -> {
+                System.out.println("Exiting.....");
+                return;
+            }
+            default -> System.out.println("Invalid choice! Try Again");
+        }
+    }
+
     public void searchStudent() {
         System.out.print("Enter Student ID to search: ");
         int id = getValidInput("",Integer.class,x -> x >0,"Enter valid choice" );
@@ -134,7 +172,7 @@ public class StudentManagementSystem {
     public void start(){
         while(true){
             System.out.println("\n-- Student Management System--\n");
-            System.out.println("1. Add Student \n2. Display Students \n3. Remove Student\n4. Sort By Marks\n5. Custom Sort\n6. Search by id \n7. Exit \n");
+            System.out.println("1. Add Student \n2. Display Students \n3. Remove Student\n4. Sort By Marks\n5. Custom Sort\n6. Search by id \n7. Filter student by marks\n8. Exit");
             int choice = getValidInput("", Integer.class,x -> x > 0,"Enter valid choice");
 
             switch (choice){
@@ -144,7 +182,8 @@ public class StudentManagementSystem {
                 case 4 -> sortStudentByMarks();
                 case 5 -> sortStudents();
                 case 6 -> searchStudent();
-                case 7 -> {
+                case 7 -> filterStudentsByMarks();
+                case 8 -> {
                     System.out.println("Exiting.....");
                     return;
                 }
