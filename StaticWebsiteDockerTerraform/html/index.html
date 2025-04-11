@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Galaxy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="title">🚀 DevOps Galaxy 🌌</h1>
+        <p class="subtitle">Explore the futuristic world of DevOps!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#stages">DevOps Stages</a></li>
+            <li><a href="#tools">Popular Tools</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="intro" class="animated-section">
+        <h2>What is DevOps?</h2>
+        <p>DevOps is a combination of software development and IT operations aimed at shortening the development lifecycle and providing continuous delivery with high software quality.</p>
+    </section>
+    <section id="stages" class="animated-section">
+        <h2>Stages of DevOps 🚀</h2>
+        <ul>
+            <li>👨‍💻 Plan</li>
+            <li>🛠️ Develop</li>
+            <li>🔬 Build</li>
+            <li>🧪 Test</li>
+            <li>🚢 Release</li>
+            <li>🚀 Deploy</li>
+            <li>📊 Monitor</li>
+            <li>♻️ Feedback</li>
+        </ul>
+    </section>
+    <section id="tools" class="animated-section">
+        <h2>Popular DevOps Tools</h2>
+        <p>Some of the most used tools in DevOps include:</p>
+        <div class="tools-container">
+            <div class="tool">🐳 Docker</div>
+            <div class="tool">☸️ Kubernetes</div>
+            <div class="tool">⚙️ Jenkins</div>
+            <div class="tool">🛠️ Ansible</div>
+            <div class="tool">📦 Terraform</div>
+            <div class="tool">🚀 GitHub Actions</div>
+        </div>
+    </section>
+    <footer>
+        <p>Created with 💡 by a Sci-Fi DevOps Enthusiast</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            anime({
+                targets: '.title',
+                translateY: [-50, 0],
+                opacity: [0, 1],
+                duration: 1500,
+                easing: 'easeOutBounce'
+            });
+            anime({
+                targets: '.subtitle',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: 500,
+                duration: 1500,
+                easing: 'easeOutExpo'
+            });
+            anime({
+                targets: '.animated-section',
+                opacity: [0, 1],
+                translateX: [-100, 0],
+                delay: anime.stagger(500),
+                duration: 1000,
+                easing: 'easeOutSine'
+            });
+            anime({
+                targets: '.tool',
+                scale: [0, 1],
+                opacity: [0, 1],
+                delay: anime.stagger(300),
+                duration: 800,
+                easing: 'easeOutElastic'
+            });
+        });
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle, #000428, #004e92);
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px cyan;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 10px;
+        }
+        nav ul li a {
+            color: cyan;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .animated-section {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px cyan;
+        }
+        .tools-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .tool {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px cyan;
+            transition: transform 0.3s ease-in-out;
+        }
+        .tool:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px cyan;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px cyan;
+        }
+    </style>
+</body>
+</html>
